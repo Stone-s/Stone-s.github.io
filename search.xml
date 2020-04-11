@@ -8,7 +8,7 @@
       <link href="/archives/88321c5b.html"/>
       <url>/archives/88321c5b.html</url>
       
-        <content type="html"><![CDATA[<h1 id="RecycleView复用错乱常用解决办法"><a href="#RecycleView复用错乱常用解决办法" class="headerlink" title="RecycleView复用错乱常用解决办法"></a>RecycleView复用错乱常用解决办法</h1><p>标签（空格分隔）： 安卓</p><hr><p>1.当显示的数据是同步显示的，一般出现错乱都是因为逻辑问题，在recycleview中逻辑判断写if一定要写else<br>2.当显示的数据是异步的，比如加载网页图片，在图片下载成功以后再设置给imageview显示，如果显示错乱，可以在最开始给imageview设置一个tag，image.setTag(url)，在图片下载成功以后，调用image.getTag(),如果获取的tag和之前设置的tag相同，再进行显示。<br>3.如果是多布局，在使用的时候一定要用getItemViewType进行类型判断<br>4.如果插入数据和删除数据导致刷新错乱，在刷新完以后要调用adapter.notifyItemChanged(int posation)或者 adapter.notifyItemRangeChanged(posationStart, itemCount)，刷新position位置<br>5.当bindViewHolder没有调用导致错乱时，在给recycleview设置adapter之前调用adapter.setHasStableIds(true)，然后在adapter里面重写getItemId(int position)，返回position<br>6.关于变量的位置<br>ViewHolder中的控件都被存放在了RecyclerView的类里面，会出现数据错乱的问题</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="RecycleView复用错乱常用解决办法"><a href="#RecycleView复用错乱常用解决办法" class="headerlink" title="RecycleView复用错乱常用解决办法"></a>RecycleView复用错乱常用解决办法</h1><p>1.当显示的数据是同步显示的，一般出现错乱都是因为逻辑问题，在recycleview中逻辑判断写if一定要写else<br>2.当显示的数据是异步的，比如加载网页图片，在图片下载成功以后再设置给imageview显示，如果显示错乱，可以在最开始给imageview设置一个tag，image.setTag(url)，在图片下载成功以后，调用image.getTag(),如果获取的tag和之前设置的tag相同，再进行显示。<br>3.如果是多布局，在使用的时候一定要用getItemViewType进行类型判断<br>4.如果插入数据和删除数据导致刷新错乱，在刷新完以后要调用adapter.notifyItemChanged(int posation)或者 adapter.notifyItemRangeChanged(posationStart, itemCount)，刷新position位置<br>5.当bindViewHolder没有调用导致错乱时，在给recycleview设置adapter之前调用adapter.setHasStableIds(true)，然后在adapter里面重写getItemId(int position)，返回position<br>6.关于变量的位置<br>ViewHolder中的控件都被存放在了RecyclerView的类里面，会出现数据错乱的问题</p>]]></content>
       
       
       <categories>
