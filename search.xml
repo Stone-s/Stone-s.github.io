@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>RecycleView复用错乱常用解决办法</title>
+      <link href="/archives/88321c5b.html"/>
+      <url>/archives/88321c5b.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="RecycleView复用错乱常用解决办法"><a href="#RecycleView复用错乱常用解决办法" class="headerlink" title="RecycleView复用错乱常用解决办法"></a>RecycleView复用错乱常用解决办法</h1><p>标签（空格分隔）： 安卓</p><hr><p>1.当显示的数据是同步显示的，一般出现错乱都是因为逻辑问题，在recycleview中逻辑判断写if一定要写else<br>2.当显示的数据是异步的，比如加载网页图片，在图片下载成功以后再设置给imageview显示，如果显示错乱，可以在最开始给imageview设置一个tag，image.setTag(url)，在图片下载成功以后，调用image.getTag(),如果获取的tag和之前设置的tag相同，再进行显示。<br>3.如果是多布局，在使用的时候一定要用getItemViewType进行类型判断<br>4.如果插入数据和删除数据导致刷新错乱，在刷新完以后要调用adapter.notifyItemChanged(int posation)或者 adapter.notifyItemRangeChanged(posationStart, itemCount)，刷新position位置<br>5.当bindViewHolder没有调用导致错乱时，在给recycleview设置adapter之前调用adapter.setHasStableIds(true)，然后在adapter里面重写getItemId(int position)，返回position<br>6.关于变量的位置<br>ViewHolder中的控件都被存放在了RecyclerView的类里面，会出现数据错乱的问题</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Android </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习 编程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>inflate小结</title>
+      <link href="/archives/afa9af88.html"/>
+      <url>/archives/afa9af88.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="Inflate小结"><a href="#Inflate小结" class="headerlink" title="Inflate小结"></a>Inflate小结</h1><h3 id="inflate-的两个调用方法"><a href="#inflate-的两个调用方法" class="headerlink" title="inflate 的两个调用方法"></a>inflate 的两个调用方法</h3><h3 id="1-使用View中的静态方法View-inflate"><a href="#1-使用View中的静态方法View-inflate" class="headerlink" title="1. 使用View中的静态方法View.inflate()"></a>1. 使用View中的静态方法View.inflate()</h3><p>public static View inflate(Context context, @LayoutRes int resource, ViewGroup root) </p><h3 id="2-使用LayoutInflater中的inflate-方法，在LayoutInflater类中有几个重载方法"><a href="#2-使用LayoutInflater中的inflate-方法，在LayoutInflater类中有几个重载方法" class="headerlink" title="2.使用LayoutInflater中的inflate()方法，在LayoutInflater类中有几个重载方法"></a>2.使用LayoutInflater中的inflate()方法，在LayoutInflater类中有几个重载方法</h3><p>public View inflate(@LayoutRes int resource, @Nullable ViewGroup root)<br>public View inflate(XmlPullParser parser, @Nullable ViewGroup root)<br>public View inflate(@LayoutRes int resource, @Nullable ViewGroup root, boolean attachToRoot)<br>public View inflate(XmlPullParser parser, @Nullable ViewGroup root, boolean attachToRoot) </p><blockquote><p>其实，如果查看过这几个方法的调用过程我们就会发现这几个方法不管调用的是哪一个，最终调用的都是 inflate(XmlPullParser parser, @Nullable ViewGroup root, boolean attachToRoot)这个方法</p></blockquote><h3 id="所以重点关注一下inflate三个参数的方法重载"><a href="#所以重点关注一下inflate三个参数的方法重载" class="headerlink" title="所以重点关注一下inflate三个参数的方法重载"></a>所以重点关注一下inflate三个参数的方法重载</h3><pre><code>inflate(int resource, ViewGroup root, boolean attachToRoot)</code></pre><ol><li>如果root为null，attachToRoot将失去作用，设置任何值都没有意义。</li><li>如果root不为null，attachToRoot设为true，则会给加载的布局文件的指定一个父布局，即root。</li><li>如果root不为null，attachToRoot设为false，则会将布局文件最外层的所有layout属性进行设置，当该view被添加到父view当中时，这些layout属性会自动生效。</li><li>在不设置attachToRoot参数的情况下，如果root不为null，attachToRoot参数默认为true。</li></ol><p> 其中第2中情况下，如果我又加了一句 addView（）就会抛出下列异常</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.lang.IllegalStateException: The specified child already has a parent. <span class="function">You must call <span class="title">removeView</span><span class="params">()</span> on the child's parent first.</span></span><br></pre></td></tr></table></figure><p>这是因为当第三个参数为true时，会自动将第一个参数所指定的View添加到第二个参数所指定的View中，不需要再手动添加。<br>###两个参数的方法<br>我们看一下源码就可以知道</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> View <span class="title">inflate</span><span class="params">(@LayoutRes <span class="keyword">int</span> resource, @Nullable ViewGroup root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> inflate(resource, root, root != <span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><p>1.如果root为null，那么参数就为 <code>null</code> <code>false</code> 等同于1所述情况。<br>2.root不为null，等同于2所述情况。<br>注意：<br>Fragment的onCreateView()，该方法返回Fragment的UI布局，需要注意的是inflate()的第三个参数是false，因为在Fragment内部实现中，会把该布局添加到container中，如果设为true，那么就会重复做两次添加，则会抛出上述异常。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Android </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习 编程 物协 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Vue学习(六)</title>
       <link href="/archives/81bc3eeb.html"/>
       <url>/archives/81bc3eeb.html</url>
