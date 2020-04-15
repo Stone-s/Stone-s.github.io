@@ -4,11 +4,30 @@
   
     
     <entry>
+      <title>单片机入门(二)</title>
+      <link href="/archives/fd185d65.html"/>
+      <url>/archives/fd185d65.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="数码管学习"><a href="#数码管学习" class="headerlink" title="数码管学习"></a>数码管学习</h1><h2 id="8段数码管段码"><a href="#8段数码管段码" class="headerlink" title="8段数码管段码"></a>8段数码管段码</h2><p><img data-src="https://raw.githubusercontent.com/Stone-s/Figurebed/master/img/20200414172704.png" alt></p><h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><blockquote><p>对于多位数码管，经常使用动态扫描的方法来显示:<br>无论在任何时刻<strong>只有一个LED数码管处于显示状态</strong>，利用人的视觉暂留效应，依次显示每个不同的数码管。某一时刻，只有一位LED数码管被选通显示，其余位则是熄灭的，人眼看到的是若干位稳定的<strong>同时显示的字符</strong>。</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 单片机 入门 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>musictest</title>
       <link href="/archives/7a47d500.html"/>
       <url>/archives/7a47d500.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>    <div id="aplayer-oXewFabB" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="571184509" data-server="xiami" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>    <div id="aplayer-geLuCbUI" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="571184509" data-server="xiami" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>]]></content>
       
       
       
