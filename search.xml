@@ -4,13 +4,25 @@
   
     
     <entry>
-      <title>DD</title>
-      <link href="/archives/a47d1d77.html"/>
-      <url>/archives/a47d1d77.html</url>
+      <title>第一行代码（第三版）学习笔记一</title>
+      <link href="/archives/a6d5827c.html"/>
+      <url>/archives/a6d5827c.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="变量和函数"><a href="#变量和函数" class="headerlink" title="变量和函数"></a>变量和函数</h1><h2 id="1-变量"><a href="#1-变量" class="headerlink" title="1.变量"></a>1.变量</h2><h3 id="1-1-kotlin中定义一个变量，只允许变量前面声明两种关键字-val-和var"><a href="#1-1-kotlin中定义一个变量，只允许变量前面声明两种关键字-val-和var" class="headerlink" title="1.1 kotlin中定义一个变量，只允许变量前面声明两种关键字 val 和var"></a>1.1 kotlin中定义一个变量，只允许变量前面声明两种关键字 <code>val</code> 和<code>var</code></h3><p>​    val(value的简写)用来声明一个不可变的变量，对应java中的final变量</p><p>​    var(variable的简写)用来声明一个可变的变量，对应java中的非final变量 </p><p>​    疑问：仅仅使用上面两个关键字，编译器怎么知道这个变量是什么类型呢?</p><p>​    kotlin中有出色 的类型推导机制，例 <code>val a=10</code> 这里的a就会被自动推导成整型变量，同理，如果你把一个字符串赋值给a，a就会被自动推导成字符串变量，但是，当我们对一个变量延迟赋值时，kotlin是无法自动推导的，这时就必须显示声明变量类型，例<code>val a: Int=10</code>，显示声明后，kotlin就不会再对其进行类型推导，此时的a只能接收int类型变量。</p><h3 id="1-2-kotlin完全抛弃了java中的基本数据类型，全部使用对象数据类型，两种语言数据类型对照关系如下："><a href="#1-2-kotlin完全抛弃了java中的基本数据类型，全部使用对象数据类型，两种语言数据类型对照关系如下：" class="headerlink" title="1.2 kotlin完全抛弃了java中的基本数据类型，全部使用对象数据类型，两种语言数据类型对照关系如下："></a>1.2 kotlin完全抛弃了java中的基本数据类型，全部使用对象数据类型，两种语言数据类型对照关系如下：</h3><table><thead><tr><th align="left">java基本数据类型</th><th align="center">Kotlin基本数据类型</th><th align="center">数据类型说明</th></tr></thead><tbody><tr><td align="left">int</td><td align="center">Int</td><td align="center">整型</td></tr><tr><td align="left">long</td><td align="center">Long</td><td align="center">长整型</td></tr><tr><td align="left">short</td><td align="center">Short</td><td align="center">短整型</td></tr><tr><td align="left">float</td><td align="center">Float</td><td align="center">单精度浮点型</td></tr><tr><td align="left">double</td><td align="center">Double</td><td align="center">双精度浮点型</td></tr><tr><td align="left">boolean</td><td align="center">Boolean</td><td align="center">布尔型</td></tr><tr><td align="left">char</td><td align="center">Char</td><td align="center">字符型</td></tr><tr><td align="left">byte</td><td align="center">Byte</td><td align="center">字节型</td></tr><tr><td align="left"></td><td align="center"></td><td align="center"></td></tr></tbody></table><h3 id="1-3-关于什么时候使用val-什么时候使用var"><a href="#1-3-关于什么时候使用val-什么时候使用var" class="headerlink" title="1.3 关于什么时候使用val,什么时候使用var"></a>1.3 关于什么时候使用val,什么时候使用var</h3><p>​    永远优先使用val,当val没有办法满足需求时再使用var,这样设计出的程序会更加健壮，也更符合高质量的编码规范。</p><h2 id="2-函数"><a href="#2-函数" class="headerlink" title="2.函数"></a>2.函数</h2><p>2.1 方法和函数是一个东西，不同编程语言中习惯叫法不同</p><p>2.2 kotlin中定义函数语法规则：</p><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">methodName</span><span class="params">(param1:<span class="type">Int</span>,param2: <span class="type">Int</span>)</span></span>:<span class="built_in">Int</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>​    <code>fun</code>是定义函数的关键字，无论定义什么函数都必须用<code>fun</code>来声明，紧接着是函数名，自己定义，函数名后面的括号，声明接收什么类型的参数，参数的数量是任意多个，声明格式是“参数名: 参数类型”，参数括号后面的是函数返回类型，如果不需要返回任何数据可不写，最后两个大括号就是函数体。还要注意kotlin中每一行代码结尾是不用加分号的。</p><p>​    尝试利用上面的定义函数的语法规则定义一个有意义的函数：</p><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">largerNumber</span><span class="params">(num1: <span class="type">Int</span>,num2:<span class="type">Int</span>)</span></span>:<span class="built_in">Int</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> max(num1,num2)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>​    这里使用的max()函数是kotlin提供的内置函数，返回两个数中更大的那一个数。</p><p>2.3 语法糖</p><p>​    当一个函数只有一行代码时，kotlin可以允许我们不必编写函数体，可以直接将唯一的一行代码写在函数定义的尾部，中间用等号连接，比如我们上面编写的largerNumber函数就可以写成下列形式：</p><p><code>fun largerNumber(num1: Int,num2: Int):Int=max(num1,num2)</code></p><p>使用这种语法，<code>return</code>关键字也省了，并且这里也可以使用kotlin的类型推导机制，max()函数返回的是Int类型的值，而我们在largerNumber()又用<code>=</code>连接了max()函数，所以，kotlin可以推导出largerNumber()函数返回的也必然是Int类型值，这样就不用显示声明返回值的类型，代码可以进一步简化如下：</p><p><code>fun largerNumber(num1: Int,num2: Int)=max(num1,num2)</code></p>]]></content>
       
       
+      <categories>
+          
+          <category> 第一行代码 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习 kotlin </tag>
+            
+        </tags>
       
     </entry>
     
@@ -40,7 +52,7 @@
       <link href="/archives/7a47d500.html"/>
       <url>/archives/7a47d500.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>    <div id="aplayer-AeYsjtqy" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="571184509" data-server="xiami" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>    <div id="aplayer-eZdfGKOP" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="571184509" data-server="xiami" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>]]></content>
       
       
       
