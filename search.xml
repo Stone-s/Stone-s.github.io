@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>解决coding配置ssh出现的Permission Denied (publickey)的问题</title>
+      <link href="/archives/f49de3a6.html"/>
+      <url>/archives/f49de3a6.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>这几天一直在用hexo搭建自己的个人博客，但是总觉得放在github上速度有点慢，在网上看见可以使用双部署策略，就是github上放一个，然后国内的代码托管网站放一个，好像大家都选coding吧</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> bug </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 日常bug </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>解决coding配置ssh出现的Permission Denied (publickey)的问题</title>
+      <link href="/archives/f49de3a6.html"/>
+      <url>/archives/f49de3a6.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>这几天一直在用hexo搭建自己的个人博客，但是总觉得放在github上速度有点慢，在网上看见可以使用双部署策略，就是github上放一个，然后国内的代码托管网站放一个，国内好像大家都选coding吧，那我也选它，还没往上放的时候，我就觉得没那么就简单，果然出问题了，在配置ssh公钥的时候，按照网上教程的指示在gitBash中输入<code>ssh -T git@git.coding.net</code>(我找到的所有教程都是这个),一直显示</p><p><code>git@git.coding.net: Permission denied (publickey).</code></p><p>不应该啊，都是按教程走的，哪里出问题了，而且这个公钥是github上用的，明明没问题啊，从网上搜索相关的帖子，来回折腾，一下午也没解决问题，直到我看见Coding官网文档中的</p><p><img data-src="/archives/f49de3a6/D:%5Cmyblog%5Csource_posts%5C%E8%A7%A3%E5%86%B3coding%E9%85%8D%E7%BD%AEssh%E5%87%BA%E7%8E%B0%E7%9A%84Permission-Denied-publickey%E7%9A%84%E9%97%AE%E9%A2%98%5CQQ%E5%9B%BE%E7%89%8720200416194418.png" alt></p><p>好家伙，原来使用的指令一直错误的，应该使用<code>ssh -T git@e.coding.net</code>,醉辽醉辽，键入上述后，出现巴拉巴拉一串英语，然后输入<code>yes</code>，就行了，如图</p><p><img data-src="/archives/f49de3a6/D:%5Cmyblog%5Csource_posts%5C%E8%A7%A3%E5%86%B3coding%E9%85%8D%E7%BD%AEssh%E5%87%BA%E7%8E%B0%E7%9A%84Permission-Denied-publickey%E7%9A%84%E9%97%AE%E9%A2%98%5C2020-04-16.png" alt></p><p>就成功了。</p><p>另外，目前coding搭建个人博客的教程基本都不能用了，因为coding有一个大的改版，最新<a href="https://help.coding.net/docs/devops/cd/static-website-paas.html" target="_blank" rel="external nofollow noopener noreferrer">官方教程</a>。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> bug </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 日常bug </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>第一行代码（第三版）学习笔记一</title>
       <link href="/archives/a6d5827c.html"/>
       <url>/archives/a6d5827c.html</url>
@@ -52,7 +102,7 @@
       <link href="/archives/7a47d500.html"/>
       <url>/archives/7a47d500.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>    <div id="aplayer-DfZWmgzT" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="571184509" data-server="xiami" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>    <div id="aplayer-MJRhhtHJ" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="571184509" data-server="xiami" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>]]></content>
       
       
       
