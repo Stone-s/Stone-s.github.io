@@ -9,7 +9,7 @@
   {{ partial('_scripts/noscript.swig', {}, {cache: theme.cache.enable}) }}
   <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
-
+<meta name="baidu-site-verification" content="vnO7LiKuW7" />
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
