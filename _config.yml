@@ -106,6 +106,7 @@ deploy:
   type: git
   repo: git@github.com:Stone-s/Stone-s.github.io.git
   branch: master
+deploy:
   type: baidu_url_submitter
 # 搜索
 search:
