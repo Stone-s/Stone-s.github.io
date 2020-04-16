@@ -106,7 +106,7 @@ deploy:
   type: git
   repo: git@github.com:Stone-s/Stone-s.github.io.git
   branch: master
-
+  type: baidu_url_submitter
 # 搜索
 search:
   path: search.xml
@@ -172,3 +172,9 @@ image_minifier:
   pngquant: false
   progressive: false
 
+# 主动推送百度，被百度收录
+baidu_url_submit:
+  count: 10 # 提交最新的10个链接
+  host:  https://xiaoshitou.cool/
+  token: ZmmzgZhAynEQPoix  # 秘钥，百度站长平台 > 推送接口 > 接口调用地址中token字段
+  path: baidu_urls.txt # 文本文档的地址， 新链接会保存在此文本文档里，不用改
