@@ -103,11 +103,11 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
-  repo: git@github.com:Stone-s/Stone-s.github.io.git
-  branch: master
-deploy:
-  type: baidu_url_submitter
+  - type: git # 原来就有的
+    repo: git@github.com:Stone-s/Stone-s.github.io.git
+    branch: master
+    message: blog update
+  - type: baidu_url_submitter # 注意，这个为新增的
 # 搜索
 search:
   path: search.xml
