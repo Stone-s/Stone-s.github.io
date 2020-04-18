@@ -1,12 +1,12 @@
 ---
 title: 解决coding配置ssh出现的Permission Denied (publickey)的问题
 copyright: true
-tags: 日常bug
-categories: bug
-description: 日常bug
-abbrlink: f49de3a6
 date: 2020-04-16 17:49:33
+tags: 日常bug 
+categories: bug
 top:
+description: 日常bug
+
 ---
 
 这几天一直在用hexo搭建自己的个人博客，但是总觉得放在github上速度有点慢，在网上看见可以使用双部署策略，就是github上放一个，然后国内的代码托管网站放一个，国内好像大家都选coding吧，那我也选它，还没往上放的时候，我就觉得没那么就简单，果然出问题了，在配置ssh公钥的时候，按照网上教程的指示在gitBash中输入`ssh -T git@git.coding.net`(我找到的所有教程都是这个),一直显示
